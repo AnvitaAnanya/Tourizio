@@ -1,0 +1,18 @@
+<nav class="glass-navbar">
+  <div class="navbar-logo">Tourizio</div>
+
+  <div class="hamburger" (click)="toggleMenu()" [class.active]="menuActive">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="navbar-links" [class.active]="menuActive">
+    <a routerLink="/" routerLinkActive="active" (click)="menuActive=false">Home</a>
+    <a routerLink="/destinations" routerLinkActive="active" (click)="menuActive=false">Destinations</a>
+    <a routerLink="/tours" routerLinkActive="active" (click)="menuActive=false">Tours</a>
+    <a routerLink="/gallery" routerLinkActive="active" (click)="menuActive=false">Gallery</a>
+    <a routerLink="/blog" routerLinkActive="active" (click)="menuActive=false">Blog</a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="menuActive=false">Contact</a>
+  </div>
+</nav>

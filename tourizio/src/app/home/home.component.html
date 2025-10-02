@@ -1,0 +1,87 @@
+<section
+  class="hero-section"
+  [ngStyle]="{ 'background-image': 'url(' + currentBg + ')' }"
+>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Discover Your Next Adventure</h1>
+    <p class="hero-subtext">Explore amazing places and create unforgettable memories with Tourizio.</p>
+    <div class="hero-buttons">
+      <button class="hero-btn primary-btn">Explore Destinations</button>
+      <button class="hero-btn secondary-btn">Book a Tour</button>
+    </div>
+    <div class="scroll-down-arrow">&#8595;</div>
+  </div>
+</section>
+<section class="about-section">
+  <div class="about-bg-blur"></div>
+  <div class="about-content">
+    <h2 class="about-title">Welcome to <span class="gradient-text">Tourizio</span></h2>
+    <div class="about-info-cards">
+      <div class="about-card">
+        <h3 class="about-card-title">Our Mission</h3>
+        <p class="about-card-text">
+          Inspiring unique journeys and meaningful experiences, Tourizio brings you curated adventures in stunning destinations. We believe travel should be simple, magical, and memorable.
+        </p>
+      </div>
+      <div class="about-card fancy-card">
+        <h3 class="about-card-title">What Makes Us Different?</h3>
+        <ul>
+          <li><span class="emoji"></span> Handpicked locations & tours</li>
+          <li><span class="emoji"></span> Smart, easy-to-use platform</li>
+          <li><span class="emoji"></span> Trusted & secure bookings</li>
+          <li><span class="emoji"></span> Community-driven recommendations</li>
+        </ul>
+      </div>
+    </div>
+    <p class="about-footer">
+      Discover the world <span class="gradient-text">your way</span>. <br />
+      <span class="about-highlight">Join us and create stories worth remembering.</span>
+    </p>
+  </div>
+</section>
+
+
+<section class="carousel-section">
+  <h2 class="section-title">Places to Visit</h2>
+  <div class="cards-container">
+    <div class="card" *ngFor="let place of visiblePlaces">
+      <div class="image-container">
+        <img [src]="place.imgUrl" [alt]="place.title" />
+        <div class="image-gradient-overlay"></div>
+        <div class="card-text">
+          <h3>{{ place.title }}</h3>
+          <p>{{ place.description }}</p>
+          <a href="#" class="read-more-btn">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pager-dots">
+    <span *ngFor="let dot of [].constructor(placesTotalPages); let i = index"
+          class="dot" [class.active]="i === placesPage" (click)="setPlacesPage(i)">
+    </span>
+  </div>
+</section>
+
+<section class="carousel-section">
+  <h2 class="section-title">Experiences</h2>
+  <div class="cards-container">
+    <div class="card" *ngFor="let exp of visibleExperiences">
+      <div class="image-container">
+        <img [src]="exp.imgUrl" [alt]="exp.title" />
+        <div class="image-gradient-overlay"></div>
+        <div class="card-text">
+          <h3>{{ exp.title }}</h3>
+          <p>{{ exp.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pager-dots">
+    <span *ngFor="let dot of [].constructor(experiencesTotalPages); let i = index"
+          class="dot" [class.active]="i === experiencesPage" (click)="setExperiencesPage(i)">
+    </span>
+  </div>
+</section>
+
