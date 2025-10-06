@@ -1,0 +1,25 @@
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">Discover Amazing Places</h1>
+    <p class="hero-desc">Browse unique destinations and plan your next adventure with Tourizio.</p>
+    <div class="hero-actions">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Search destinations..." (input)="applyFilters()" class="search-bar"/>
+      <select [(ngModel)]="selectedFilter" (change)="applyFilters()" class="filter-dropdown">
+        <option value="">All Types</option>
+        <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="hero-bg"></div>
+</section>
+<div class="dest-grid">
+  <div *ngFor="let dest of filteredDestinations" class="dest-card" [@fadeInStagger]>
+    <img [src]="dest.image" alt="{{dest.name}}" class="dest-img"/>
+    <div class="dest-info">
+      <h2>{{dest.name}}</h2>
+      <span class="badge">{{dest.type}}</span>
+      <p>{{dest.shortDesc}}</p>
+      <button class="cta-btn">Explore</button>
+    </div>
+  </div>
+</div>

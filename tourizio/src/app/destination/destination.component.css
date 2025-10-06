@@ -1,0 +1,196 @@
+body {
+  
+  font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+  color: #252525;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-section {
+  margin-top: 56px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 350px;
+  background: linear-gradient(135deg,  rgba(162, 167, 176, 0.9)),
+              url('/assets/landscape.jpg') center/cover no-repeat;
+  color: #252525;
+  padding: 3rem 5rem;
+  animation: bgFadeIn 1.2s ease-in-out;
+  border-radius: 45px 45px 45px 45px;
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-title {
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 900;
+  font-size: 3.6rem;
+  color: #252525;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.4rem;
+  animation: slideInUp 0.9s cubic-bezier(0.42, 0, 1, 1);
+}
+
+.hero-desc {
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.2rem;
+  max-width: 100%;
+}
+
+.search-bar, .filter-dropdown {
+  border-radius: 30px;
+  border: none;
+  padding: 14px 20px 14px 48px;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+  color: #252525;
+  transition: box-shadow 0.3s ease, background-color 0.3s;
+  position: relative;
+  flex-basis: 75%;
+}
+
+.search-bar {
+  
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  padding-left: 48px;
+}
+
+.search-bar:focus, .filter-dropdown:focus {
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 40px rgba(44,76,140,0.11);
+  outline: none;
+}
+
+.filter-dropdown {
+  flex-basis: 30%;
+  padding-right: 20px;
+}
+
+.dest-grid {
+  margin: 3rem 5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+}
+
+.dest-card {
+  background: #fff;
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgb(58 72 122 / 0.11);
+  transition: transform 0.32s cubic-bezier(.25,1,.33,1), box-shadow 0.35s;
+  cursor: pointer;
+  border: 1.5px solid #e0e5ee;
+}
+
+.dest-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgb(60 90 153 / 0.12);
+  border-color: #3262a8;
+}
+
+.dest-img {
+  width: 100%;
+  height: 200px;
+  border-radius: 25px 25px 0 0;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  background-color: #f6f0d6;
+}
+
+.dest-card:hover .dest-img {
+  transform: scale(1.04);
+}
+
+.dest-info {
+  padding: 1.5rem 1.8rem;
+}
+
+.dest-card h2 {
+  color: #252525;
+  font-size: 2rem;
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
+  font-weight: 700;
+  margin: 0 0 0.7rem 0;
+}
+
+
+.badge {
+  display: inline-block;
+  padding: 0.29em 1em;
+  background: linear-gradient(90deg, #4b68c7, #334c8c);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.96rem;
+  border-radius: 15px;
+  margin-bottom: 0.7rem;
+  box-shadow: 0 1px 5px rgba(60,90,153,.10);
+}
+
+.cta-btn {
+  margin-top: 1rem;
+  background: linear-gradient(90deg, #4b68c7, #334c8c);
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1.7rem;
+  font-weight: 600;
+  border-radius: 22px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.07rem;
+  transition: background 0.3s ease;
+  box-shadow: 0 3px 8px rgba(44,76,140,0.09);
+}
+
+.cta-btn:hover {
+  background: #253566;
+}
+
+@keyframes bgFadeIn {
+  from { opacity: 0;}
+  to { opacity: 1;}
+}
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+
+@media (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 0 0 30px 30px;
+    padding: 2rem 2.5rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  .search-bar, .filter-dropdown {
+    flex-basis: 100%;
+  }
+  .dest-grid {
+    margin: 2rem 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .hero-title { font-size: 2.2rem; }
+  .dest-grid { gap: 1.2rem; }
+  .dest-img { height: 160px; }
+}

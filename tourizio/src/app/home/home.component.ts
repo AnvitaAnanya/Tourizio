@@ -1,14 +1,24 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink,RouterLinkActive  ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+   menuActive = false;
+
+  toggleMenu() {
+    this.menuActive = !this.menuActive;
+  }
+
+  closeMenu() {
+    this.menuActive = false;
+  }
   images: string[] = [
     'assets/img11.avif',
     'assets/img2.avif',

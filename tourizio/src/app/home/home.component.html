@@ -7,7 +7,9 @@
     <h1 class="hero-title">Discover Your Next Adventure</h1>
     <p class="hero-subtext">Explore amazing places and create unforgettable memories with Tourizio.</p>
     <div class="hero-buttons">
-      <button class="hero-btn primary-btn">Explore Destinations</button>
+      <a routerLink="/destination" routerLinkActive="active" (click)="closeMenu()" class="hero-btn primary-btn">Explore Destinations</a>
+
+
       <button class="hero-btn secondary-btn">Book a Tour</button>
     </div>
     <div class="scroll-down-arrow">&#8595;</div>

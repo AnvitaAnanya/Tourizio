@@ -14,7 +14,7 @@
   overflow: hidden;
   margin-top: 64px;
   z-index: 1;
-  transition: background-image 1s ease-in-out;
+  transition: background-image .5s ease-in-out;
 }
 
 .hero-overlay {

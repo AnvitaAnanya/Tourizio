@@ -36,7 +36,6 @@
   white-space: nowrap;
 }
 
-
 .hamburger {
   display: none;
   cursor: pointer;
@@ -69,11 +68,11 @@
 
 .navbar-links {
   display: flex;
-  flex: 1;                
+  flex: 1;                 
   justify-content: flex-end; 
   font-weight: 600;
   font-size: 0.85rem;
-  gap: 40px;             
+  gap: 40px;              
   overflow: visible;
   padding-left: 40px;    
 }
@@ -94,12 +93,18 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.navbar-links a:hover,
-.navbar-links a.active {
+.navbar-links a:hover {
   background: rgba(58, 134, 255, 0.15);
   color: #244a91;
   transform: translateY(-1px);
   cursor: pointer;
+}
+
+.navbar-links a.active {
+  
+  color: #222;
+  transform: none;
+  cursor: default;
 }
 
 .navbar-links a:focus,
@@ -109,7 +114,6 @@
   background: rgba(58, 134, 255, 0.15);
   color: #244a91;
 }
-
 
 @media (max-width: 1024px) {
   .glass-navbar {
@@ -161,13 +165,7 @@
     left: 8px;
     right: 8px;
   }
-  .navbar-logo {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    white-space: nowrap;
-  }
+  
   .navbar-links {
     width: 100%;
     justify-content: center;

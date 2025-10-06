@@ -8,11 +8,12 @@
   </div>
 
   <div class="navbar-links" [class.active]="menuActive">
-    <a routerLink="/" routerLinkActive="active" (click)="menuActive=false">Home</a>
-    <a routerLink="/destinations" routerLinkActive="active" (click)="menuActive=false">Destinations</a>
-    <a routerLink="/tours" routerLinkActive="active" (click)="menuActive=false">Tours</a>
-    <a routerLink="/gallery" routerLinkActive="active" (click)="menuActive=false">Gallery</a>
-    <a routerLink="/blog" routerLinkActive="active" (click)="menuActive=false">Blog</a>
-    <a routerLink="/contact" routerLinkActive="active" (click)="menuActive=false">Contact</a>
+    <a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Home</a>
+    <a routerLink="/destination" routerLinkActive="active" (click)="closeMenu()">Destination</a>
+
+    <a routerLink="/tours" routerLinkActive="active" (click)="closeMenu()">Tours</a>
+    <a routerLink="/gallery" routerLinkActive="active" (click)="closeMenu()">Gallery</a>
+    <a routerLink="/blog" routerLinkActive="active" (click)="closeMenu()">Blog</a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
   </div>
 </nav>
