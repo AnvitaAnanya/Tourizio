@@ -9,6 +9,12 @@ export interface Destination {
   type: string;
   image: string;
   shortDesc: string;
+  price: number;
+  duration: number;
+  rating: number;
+  climate: string;
+  bestSeason: string;
+  
 }
 
 @Component({
@@ -33,18 +39,39 @@ export interface Destination {
 export class DestinationComponent implements OnInit {
   destinations: Destination[] = DESTINATIONS;
   filteredDestinations: Destination[] = [];
+
   searchQuery = '';
   selectedFilter = '';
   types: string[] = ['Beach', 'Mountain', 'City', 'Adventure', 'Nature'];
 
+  minPrice = 0;
+  maxPrice = 20000;
+  minDuration = 1;
+  maxDuration = 14;
+  minRating = 0;
+  maxRating = 5;
+
+  selectedClimate = '';
+  selectedSeason = '';
+
+  climates: string[] = [];
+  seasons: string[] = [];
+
   ngOnInit() {
     this.filteredDestinations = [...this.destinations];
+    this.climates = [...new Set(this.destinations.map(d => d.climate))];
+    this.seasons = [...new Set(this.destinations.map(d => d.bestSeason))];
   }
 
   applyFilters() {
     this.filteredDestinations = this.destinations.filter((dest: Destination) =>
       (!this.selectedFilter || dest.type === this.selectedFilter) &&
-      (!this.searchQuery || dest.name.toLowerCase().includes(this.searchQuery.toLowerCase()))
+      (!this.searchQuery || dest.name.toLowerCase().includes(this.searchQuery.toLowerCase())) &&
+      (dest.price >= this.minPrice && dest.price <= this.maxPrice) &&
+      (dest.duration >= this.minDuration && dest.duration <= this.maxDuration) &&
+      (dest.rating >= this.minRating && dest.rating <= this.maxRating) &&
+      (!this.selectedClimate || dest.climate === this.selectedClimate) &&
+      (!this.selectedSeason || dest.bestSeason === this.selectedSeason)
     );
   }
 }

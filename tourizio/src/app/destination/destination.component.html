@@ -2,24 +2,78 @@
   <div class="hero-content">
     <h1 class="hero-title">Discover Amazing Places</h1>
     <p class="hero-desc">Browse unique destinations and plan your next adventure with Tourizio.</p>
-    <div class="hero-actions">
-      <input type="text" [(ngModel)]="searchQuery" placeholder="Search destinations..." (input)="applyFilters()" class="search-bar"/>
-      <select [(ngModel)]="selectedFilter" (change)="applyFilters()" class="filter-dropdown">
-        <option value="">All Types</option>
-        <option *ngFor="let type of types" [value]="type">{{ type }}</option>
-      </select>
+
+    <div class="hero-search-container">
+      <input type="text" class="hero-search-bar" [(ngModel)]="searchQuery" (input)="applyFilters()"
+        placeholder="Search destinations..." />
+
     </div>
+
   </div>
   <div class="hero-bg"></div>
 </section>
-<div class="dest-grid">
-  <div *ngFor="let dest of filteredDestinations" class="dest-card" [@fadeInStagger]>
-    <img [src]="dest.image" alt="{{dest.name}}" class="dest-img"/>
-    <div class="dest-info">
-      <h2>{{dest.name}}</h2>
-      <span class="badge">{{dest.type}}</span>
-      <p>{{dest.shortDesc}}</p>
-      <button class="cta-btn">Explore</button>
+
+
+<div class="main-wrapper">
+  <aside class="sidebar-glass">
+    <h3 class="sidebar-title">Filters</h3>
+    <label class="filter-label">Type</label>
+    <select [(ngModel)]="selectedFilter" (change)="applyFilters()" class="filter-dropdown">
+      <option value="">All Types</option>
+      <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+    </select>
+    <label class="filter-label">Climate</label>
+    <select [(ngModel)]="selectedClimate" (change)="applyFilters()" class="filter-dropdown">
+      <option value="">All Climates</option>
+      <option *ngFor="let climate of climates" [value]="climate">{{ climate }}</option>
+    </select>
+    <label class="filter-label">Season</label>
+    <select [(ngModel)]="selectedSeason" (change)="applyFilters()" class="filter-dropdown">
+      <option value="">All Seasons</option>
+      <option *ngFor="let season of seasons" [value]="season">{{ season }}</option>
+    </select>
+    <div class="filter-range">
+      <label>Price</label>
+      <input type="range" [(ngModel)]="minPrice" min="0" max="20000" step="500" (input)="applyFilters()" />
+      <span class="range-value">{{ minPrice }}</span>
+      <input type="range" [(ngModel)]="maxPrice" min="0" max="20000" step="500" (input)="applyFilters()" />
+      <span class="range-value">{{ maxPrice }}</span>
     </div>
-  </div>
+    <div class="filter-range">
+      <label>Duration</label>
+      <input type="range" [(ngModel)]="minDuration" min="1" max="14" (input)="applyFilters()" />
+      <span class="range-value">{{ minDuration }}</span>
+      <input type="range" [(ngModel)]="maxDuration" min="1" max="14" (input)="applyFilters()" />
+      <span class="range-value">{{ maxDuration }}</span>
+    </div>
+    <div class="filter-range">
+      <label>Rating</label>
+      <input type="range" [(ngModel)]="minRating" min="0" max="5" step="0.1" (input)="applyFilters()" />
+      <span class="range-value">{{ minRating }}</span>
+      <input type="range" [(ngModel)]="maxRating" min="0" max="5" step="0.1" (input)="applyFilters()" />
+      <span class="range-value">{{ maxRating }}</span>
+    </div>
+  </aside>
+  <main class="cards-grid">
+    <div *ngFor="let dest of filteredDestinations" class="card" [@fadeInStagger]>
+      <img [src]="dest.image" alt="{{ dest.name }}" class="card-img" />
+      <div class="card-content">
+        <div class="card-header-row">
+          <h2 class="destination-title">{{ dest.name }}</h2>
+          <span class="badge">{{ dest.type }}</span>
+        </div>
+        <div class="meta-row">
+          <span class="pill">₹{{ dest.price }}</span>
+          <span class="pill">{{ dest.duration }}d</span>
+          <span class="pill">{{ dest.rating.toFixed(1) }}<span class="star">★</span></span>
+        </div>
+        <div class="secondary-row">
+          <span class="pill">{{ dest.climate }}</span>
+          <span class="pill">{{ dest.bestSeason }}</span>
+        </div>
+        <p class="card-desc multiline">{{ dest.shortDesc }}</p>
+        <button class="cta-btn-card">Explore</button>
+      </div>
+    </div>
+  </main>
 </div>

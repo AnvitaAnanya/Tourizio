@@ -5,66 +5,121 @@ export const DESTINATIONS: Destination[] = [
     name: 'Agra',
     type: 'City',
     image: '/assets/taj.webp',
-    shortDesc: 'Home of the majestic Taj Mahal, a UNESCO World Heritage monument of love.'
+    shortDesc: 'Home of the Taj Mahal, a breathtaking monument of love and Mughal architecture.',
+    price: 3500,
+    duration: 2,
+    rating: 4.8,
+    climate: 'Warm',
+    bestSeason: 'October to March'
   },
   {
     name: 'Jaipur',
     type: 'City',
     image: '/assets/jaipur.jpg',
-    shortDesc: 'The Pink City, known for its royal palaces, forts, and vibrant Rajasthani culture.'
+    shortDesc: 'The Pink City, known for its royal heritage and colorful bazaars.',
+    price: 4200,
+    duration: 3,
+    rating: 4.7,
+    climate: 'Hot and Dry',
+    bestSeason: 'November to February'
   },
   {
     name: 'Goa',
     type: 'Beach',
     image: '/assets/goa.avif',
-    shortDesc: 'India’s party and relaxation hub, famous for sun-kissed beaches and nightlife.'
+    shortDesc: 'India’s party paradise, famous for vibrant beaches and nightlife.',
+    price: 7500,
+    duration: 4,
+    rating: 4.9,
+    climate: 'Tropical',
+    bestSeason: 'November to February'
   },
   {
     name: 'Ladakh',
     type: 'Mountain',
     image: '/assets/ladakh.jpg',
-    shortDesc: 'Land of high passes, pristine lakes, and breathtaking Himalayan views.'
+    shortDesc: 'Land of high passes and pristine lakes set amidst the Himalayas.',
+    price: 12000,
+    duration: 6,
+    rating: 4.9,
+    climate: 'Cold Desert',
+    bestSeason: 'May to September'
   },
   {
     name: 'Kerala',
     type: 'Nature',
     image: '/assets/kerala.jpeg',
-    shortDesc: 'Houseboats, lush greenery, and tranquil waterways define God’s Own Country.'
+    shortDesc: 'Lush green landscapes, tranquil backwaters, and vibrant culture.',
+    price: 9800,
+    duration: 5,
+    rating: 4.8,
+    climate: 'Tropical',
+    bestSeason: 'September to March'
   },
   {
     name: 'Varanasi',
     type: 'City',
     image: '/assets/varansi.jpg',
-    shortDesc: 'The spiritual heart of India, set on the banks of the sacred Ganges.'
+    shortDesc: 'Spiritual capital of India, nestled along the sacred Ganges.',
+    price: 2800,
+    duration: 2,
+    rating: 4.6,
+    climate: 'Humid Subtropical',
+    bestSeason: 'October to March'
   },
   {
     name: 'Rishikesh',
     type: 'Adventure',
     image: '/assets/rishikesh.jpg',
-    shortDesc: 'Yoga capital, river rafting paradise, and gateway to the Himalayas.'
+    shortDesc: 'Yoga capital and river rafting hub nestled in the Himalayan foothills.',
+    price: 6500,
+    duration: 3,
+    rating: 4.8,
+    climate: 'Moderate',
+    bestSeason: 'February to June'
   },
   {
     name: 'Rann of Kutch',
     type: 'Nature',
     image: '/assets/rann.avif',
-    shortDesc: 'Salt desert known for its surreal landscapes and the vibrant Rann Utsav.'
+    shortDesc: 'White salt desert offering surreal scenery and cultural festivals.',
+    price: 9000,
+    duration: 4,
+    rating: 4.7,
+    climate: 'Arid',
+    bestSeason: 'November to February'
   },
   {
     name: 'Darjeeling',
     type: 'Mountain',
     image: '/assets/darjelling.webp',
-    shortDesc: 'Tea gardens, cool breezes, and views of the mighty Kanchenjunga.'
+    shortDesc: 'Queen of the Hills, home to tea estates and Himalayan views.',
+    price: 7200,
+    duration: 4,
+    rating: 4.8,
+    climate: 'Cool Temperate',
+    bestSeason: 'March to May'
   },
   {
     name: 'Udaipur',
     type: 'City',
     image: '/assets/udaipur.cms',
-    shortDesc: 'The City of Lakes, famed for its romantic palaces and scenic vistas.'
+    shortDesc: 'The romantic City of Lakes, showcasing regal palaces and serenity.',
+    price: 5000,
+    duration: 3,
+    rating: 4.7,
+    climate: 'Arid',
+    bestSeason: 'November to February'
   },
   {
     name: 'Andaman Islands',
     type: 'Beach',
     image: '/assets/andaman.webp',
-    shortDesc: 'Pristine beaches, turquoise waters, and tropical tranquility.'
+    shortDesc: 'Tropical paradise of turquoise waters and coral reefs.',
+    price: 15000,
+    duration: 7,
+    rating: 4.9,
+    climate: 'Tropical',
+    bestSeason: 'November to May'
   }
 ];
