@@ -1,0 +1,120 @@
+<div class="login-container">
+  <div class="background-overlay"></div>
+  <div class="glass-card">
+    <div class="card-header">
+      <h1 appScrollAnimate>{{ isLoginMode ? 'Welcome Back' : 'Create Account' }}</h1>
+      <p appScrollAnimate>{{ isLoginMode ? 'Sign in to continue your journey' : 'Join us to explore amazing destinations' }}</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" class="auth-form" appScrollAnimate>
+      <!-- Error Message Display -->
+      <div *ngIf="errorMessage" class="error-message">
+        <span class="error-icon">⚠️</span>
+        {{ errorMessage }}
+      </div>
+
+      <!-- Signup Name Field -->
+      <div *ngIf="!isLoginMode" class="form-group">
+        <label for="name">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          [(ngModel)]="signupData.name"
+          name="name"
+          placeholder="Enter your full name"
+          required
+          [disabled]="isLoading"
+        />
+      </div>
+
+      <!-- Login Email Field -->
+      <div *ngIf="isLoginMode" class="form-group">
+        <label for="loginEmail">Email</label>
+        <input
+          type="email"
+          id="loginEmail"
+          [(ngModel)]="loginData.email"
+          name="loginEmail"
+          placeholder="Enter your email"
+          required
+          [disabled]="isLoading"
+        />
+      </div>
+
+      <!-- Signup Email Field -->
+      <div *ngIf="!isLoginMode" class="form-group">
+        <label for="signupEmail">Email</label>
+        <input
+          type="email"
+          id="signupEmail"
+          [(ngModel)]="signupData.email"
+          name="signupEmail"
+          placeholder="Enter your email"
+          required
+          [disabled]="isLoading"
+        />
+      </div>
+
+      <!-- Login Password Field -->
+      <div *ngIf="isLoginMode" class="form-group">
+        <label for="loginPassword">Password</label>
+        <input
+          type="password"
+          id="loginPassword"
+          [(ngModel)]="loginData.password"
+          name="loginPassword"
+          placeholder="Enter your password"
+          required
+          [disabled]="isLoading"
+        />
+      </div>
+
+      <!-- Signup Password Field -->
+      <div *ngIf="!isLoginMode" class="form-group">
+        <label for="signupPassword">Password</label>
+        <input
+          type="password"
+          id="signupPassword"
+          [(ngModel)]="signupData.password"
+          name="signupPassword"
+          placeholder="Enter your password"
+          required
+          [disabled]="isLoading"
+        />
+      </div>
+
+      <!-- Confirm Password Field -->
+      <div *ngIf="!isLoginMode" class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          [(ngModel)]="signupData.confirmPassword"
+          name="confirmPassword"
+          placeholder="Confirm your password"
+          required
+          [disabled]="isLoading"
+        />
+      </div>
+
+      <button type="submit" class="submit-btn" [disabled]="isLoading">
+        <span *ngIf="!isLoading">
+          {{ isLoginMode ? 'Sign In' : 'Sign Up' }}
+        </span>
+        <span *ngIf="isLoading" class="loading-spinner">
+          ⏳ Loading...
+        </span>
+      </button>
+    </form>
+
+    <div class="toggle-mode">
+      <p>
+        {{ isLoginMode ? "Don't have an account?" : 'Already have an account?' }}
+        <button type="button" (click)="toggleMode()" class="toggle-btn">
+          {{ isLoginMode ? 'Sign Up' : 'Sign In' }}
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
+

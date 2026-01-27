@@ -1,0 +1,47 @@
+<div class="gallery-container">
+  <div class="filter-section" appScrollAnimate>
+    <button
+      *ngFor="let category of categories"
+      [class.active]="selectedCategory === category.id"
+      (click)="filterImages(category.id)"
+      class="filter-btn"
+    >
+      {{ category.name }}
+    </button>
+  </div>
+
+  <div class="gallery-grid" appScrollAnimate>
+    <div
+      *ngFor="let image of filteredImages; let i = index"
+      class="gallery-item"
+      [style.animation-delay]="(i % 6) * 0.1 + 's'"
+      (click)="openLightbox(image)"
+      appScrollAnimate
+    >
+      <div class="image-wrapper">
+        <img [src]="image.src" [alt]="image.title" loading="lazy" />
+        <div class="image-overlay">
+          <div class="image-info">
+            <h3>{{ image.title }}</h3>
+            <p>{{ image.location }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" *ngIf="lightboxOpen" (click)="closeLightbox()">
+  <button class="lightbox-close" (click)="closeLightbox()">×</button>
+  <button class="lightbox-nav prev" (click)="previousImage(); $event.stopPropagation()">‹</button>
+  <button class="lightbox-nav next" (click)="nextImage(); $event.stopPropagation()">›</button>
+  <div class="lightbox-content" (click)="$event.stopPropagation()">
+    <img [src]="selectedImage?.src" [alt]="selectedImage?.title" />
+    <div class="lightbox-info">
+      <h2>{{ selectedImage?.title }}</h2>
+      <p>{{ selectedImage?.location }}</p>
+    </div>
+  </div>
+</div>
+

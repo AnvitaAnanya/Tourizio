@@ -39,23 +39,24 @@
       <input type="range" [(ngModel)]="maxPrice" min="0" max="20000" step="500" (input)="applyFilters()" />
       <span class="range-value">{{ maxPrice }}</span>
     </div>
-    <div class="filter-range">
-      <label>Duration</label>
-      <input type="range" [(ngModel)]="minDuration" min="1" max="14" (input)="applyFilters()" />
-      <span class="range-value">{{ minDuration }}</span>
-      <input type="range" [(ngModel)]="maxDuration" min="1" max="14" (input)="applyFilters()" />
-      <span class="range-value">{{ maxDuration }}</span>
-    </div>
-    <div class="filter-range">
-      <label>Rating</label>
-      <input type="range" [(ngModel)]="minRating" min="0" max="5" step="0.1" (input)="applyFilters()" />
-      <span class="range-value">{{ minRating }}</span>
-      <input type="range" [(ngModel)]="maxRating" min="0" max="5" step="0.1" (input)="applyFilters()" />
-      <span class="range-value">{{ maxRating }}</span>
-    </div>
+    <label class="filter-label">Duration</label>
+    <select [(ngModel)]="selectedDuration" (change)="applyFilters()" class="filter-dropdown">
+      <option *ngFor="let option of durationOptions" [value]="option">{{ option }}</option>
+    </select>
+    <label class="filter-label">Rating</label>
+    <select [(ngModel)]="selectedRating" (change)="applyFilters()" class="filter-dropdown">
+      <option *ngFor="let option of ratingOptions" [value]="option">{{ option }}</option>
+    </select>
   </aside>
   <main class="cards-grid">
-    <div *ngFor="let dest of filteredDestinations" class="card" [@fadeInStagger]>
+    <div *ngIf="filteredDestinations.length === 0" class="no-results">
+      <div class="no-results-content">
+        <span class="no-results-icon">🔍</span>
+        <h3>No destinations found</h3>
+        <p>Try adjusting your filters or search criteria</p>
+      </div>
+    </div>
+    <div *ngFor="let dest of filteredDestinations" class="card" appScrollAnimate>
       <img [src]="dest.image" alt="{{ dest.name }}" class="card-img" />
       <div class="card-content">
         <div class="card-header-row">
@@ -72,7 +73,7 @@
           <span class="pill">{{ dest.bestSeason }}</span>
         </div>
         <p class="card-desc multiline">{{ dest.shortDesc }}</p>
-        <button class="cta-btn-card">Explore</button>
+        <button class="cta-btn-card" (click)="bookNow(dest)">Book Now</button>
       </div>
     </div>
   </main>

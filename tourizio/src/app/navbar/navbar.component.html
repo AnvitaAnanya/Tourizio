@@ -8,12 +8,21 @@
   </div>
 
   <div class="navbar-links" [class.active]="menuActive">
-    <a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Home</a>
+    <a routerLink="/home" routerLinkActive="active" (click)="closeMenu()">Home</a>
     <a routerLink="/destination" routerLinkActive="active" (click)="closeMenu()">Destination</a>
-
-    <a routerLink="/tours" routerLinkActive="active" (click)="closeMenu()">Tours</a>
+    <a routerLink="/booking" routerLinkActive="active" (click)="closeMenu()">Book a tour</a>
     <a routerLink="/gallery" routerLinkActive="active" (click)="closeMenu()">Gallery</a>
-    <a routerLink="/blog" routerLinkActive="active" (click)="closeMenu()">Blog</a>
     <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+  </div>
+
+  <!-- Authentication Links -->
+  <div class="auth-section">
+    <a *ngIf="!isAuthenticated" routerLink="/login" routerLinkActive="active" (click)="closeMenu()" class="login-link">
+      Login / Sign Up
+    </a>
+    
+    <button *ngIf="isAuthenticated" (click)="logout()" class="logout-btn" [disabled]="isLoggingOut">
+      {{ isLoggingOut ? 'Logging out...' : 'Logout' }}
+    </button>
   </div>
 </nav>

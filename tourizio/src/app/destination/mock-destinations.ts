@@ -46,6 +46,17 @@ export const DESTINATIONS: Destination[] = [
     bestSeason: 'May to September'
   },
   {
+    name: 'Udaipur',
+    type: 'City',
+    image: '/assets/udaipur.cms',
+    shortDesc: 'The City of Lakes, known for its royal palaces and romantic ambiance.',
+    price: 5500,
+    duration: 4,
+    rating: 4.8,
+    climate: 'Semi-arid',
+    bestSeason: 'October to March'
+  },
+  {
     name: 'Kerala',
     type: 'Nature',
     image: '/assets/kerala.jpeg',

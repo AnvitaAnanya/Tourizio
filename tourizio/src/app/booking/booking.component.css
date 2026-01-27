@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+
+/* Reset body and html margin/padding */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* Booking page container full viewport */
+.booking-page-container {
+  min-height: 100vh;
+  width: 100vw; 
+  background-image: url('/assets/travelBooking.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 100px 20px 40px;
+  overflow-x: hidden;
+}
+
+
+
+.booking-container {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
+  max-width: 700px;
+  width: 90%;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.booking-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.booking-container h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2e3a4f;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  letter-spacing: 1px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.booking-container h2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Flex form rows */
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  flex: 1;
+  min-width: 110px;
+}
+
+mat-form-field {
+  min-width: 0;
+  flex: 1 1 130px;
+}
+
+/* Button fill and spacing */
+button[mat-raised-button] {
+  margin: 1rem 0 0 0;
+  width: 100%;
+}
+
+/* Prevent red text after reset */
+.mat-form-field.mat-form-field-invalid .mat-form-field-wrapper {
+  color: initial;
+}
+
+/* Adjust mat-error color for visibility */
+.mat-error {
+  color: #f44336; /* Material red */
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+mat-form-field {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+mat-form-field.visible {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+/* Stagger animation for form fields */
+mat-form-field:nth-of-type(1).visible {
+  animation-delay: 0s;
+}
+
+mat-form-field:nth-of-type(2).visible {
+  animation-delay: 0.1s;
+}
+
+mat-form-field:nth-of-type(3).visible {
+  animation-delay: 0.2s;
+}
+
+mat-form-field:nth-of-type(4).visible {
+  animation-delay: 0.3s;
+}
+
+mat-form-field:nth-of-type(5).visible {
+  animation-delay: 0.4s;
+}
+
+mat-form-field:nth-of-type(6).visible {
+  animation-delay: 0.5s;
+}
+
+mat-form-field:nth-of-type(7).visible {
+  animation-delay: 0.6s;
+}
+
+mat-form-field:nth-of-type(8).visible {
+  animation-delay: 0.7s;
+}
+
+mat-form-field:nth-of-type(9).visible {
+  animation-delay: 0.8s;
+}
+
+mat-form-field:nth-of-type(10).visible {
+  animation-delay: 0.9s;
+}
+
+button[mat-raised-button] {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+button[mat-raised-button].visible {
+  animation: fadeUp 0.6s ease forwards;
+  animation-delay: 1s;
+}

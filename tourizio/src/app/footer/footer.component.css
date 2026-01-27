@@ -75,6 +75,16 @@
   margin-bottom: 6px;
   cursor: default;
 }
+.footer-contact a {
+  color: #b9deec;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: #32b4ff; /* optional hover color */
+  text-decoration: underline;
+}
 
 .footer-socials a {
   color: #e1e1e1;

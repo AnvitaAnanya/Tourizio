@@ -1,0 +1,126 @@
+<div class="booking-page-container">
+  <div class="booking-container" appScrollAnimate>
+    <form [formGroup]="bookingForm" (ngSubmit)="submitBooking()">
+      <h2 appScrollAnimate>Book Your Adventure</h2>
+
+      <mat-form-field appearance="fill" class="full-width" appScrollAnimate>
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="name" placeholder="Enter your full name" />
+        <mat-error *ngIf="bookingForm.get('name')?.hasError('required')">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width" appScrollAnimate>
+        <mat-label>Destination</mat-label>
+        <mat-select formControlName="destination">
+          <mat-option *ngFor="let dest of destinations" [value]="dest.id">
+            {{ dest.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="bookingForm.get('destination')?.hasError('required')">
+          Please select a destination
+        </mat-error>
+      </mat-form-field>
+
+      <div class="form-row">
+        <mat-form-field appearance="fill" class="half-width" appScrollAnimate>
+          <mat-label>Start Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="startPicker"
+            formControlName="startDate"
+            [min]="minDate"
+            placeholder="Pick start date"
+          />
+          <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+          <mat-datepicker #startPicker [startAt]="minDate"></mat-datepicker>
+          <mat-error *ngIf="bookingForm.get('startDate')?.hasError('required')">
+            Please select a start date
+          </mat-error>
+          <mat-error *ngIf="bookingForm.get('startDate')?.hasError('pastDate')">
+            Please select today or a future date
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="half-width" appScrollAnimate>
+          <mat-label>End Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="endPicker"
+            formControlName="endDate"
+            [min]="bookingForm.get('startDate')?.value || minDate"
+            placeholder="Pick end date"
+          />
+          <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+          <mat-datepicker #endPicker></mat-datepicker>
+          <mat-error *ngIf="bookingForm.get('endDate')?.hasError('required')">
+            Please select an end date
+          </mat-error>
+          <mat-error *ngIf="bookingForm.get('endDate')?.hasError('invalidEndDate')">
+            End date must be after start date
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="fill" class="half-width" appScrollAnimate>
+          <mat-label>People</mat-label>
+          <input matInput type="number" min="1" formControlName="people" />
+          <mat-error *ngIf="bookingForm.get('people')?.hasError('min')">
+            At least 1 person
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="fill" class="half-width" appScrollAnimate>
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" />
+          <mat-error *ngIf="bookingForm.get('email')?.hasError('email') || bookingForm.get('email')?.hasError('invalidEmail')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="bookingForm.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="half-width" appScrollAnimate>
+          <mat-label>Phone</mat-label>
+          <input matInput type="tel" formControlName="phone" maxlength="10" pattern="^[6-9][0-9]{9}$" />
+          <mat-error *ngIf="bookingForm.get('phone')?.hasError('required')">
+            Phone is required
+          </mat-error>
+          <mat-error *ngIf="bookingForm.get('phone')?.hasError('pattern')">
+            Phone number must start with 6-9 and be 10 digits long
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+
+
+      <mat-form-field appearance="fill" class="full-width" appScrollAnimate>
+        <mat-label>Address</mat-label>
+        <textarea matInput formControlName="address" rows="3" placeholder="Enter your address"></textarea>
+        <mat-error *ngIf="bookingForm.get('address')?.hasError('required')">
+          Address is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width" appScrollAnimate>
+        <mat-label>Special Requests (Optional)</mat-label>
+        <textarea matInput formControlName="specialRequests" rows="3" placeholder="Any special requests or notes"></textarea>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="bookingForm.invalid"
+        appScrollAnimate
+      >
+        Book Tour
+      </button>
+    </form>
+  </div>
+</div>
