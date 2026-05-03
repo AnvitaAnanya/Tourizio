@@ -2,6 +2,28 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.17.
 
+## Firebase Configuration
+
+Before running the development server, you must set up Firebase credentials:
+
+1. **Create a `.env` file** in the `tourizio` directory:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Fill in your Firebase credentials**:
+   - Go to [Firebase Console](https://console.firebase.google.com/)
+   - Select your project
+   - Go to ⚙️ Settings > Project Settings
+   - Copy these values into your `.env` file:
+     ```
+     VITE_FIREBASE_API_KEY=your_api_key
+     VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+     VITE_FIREBASE_PROJECT_ID=your_project_id
+     ```
+
+3. **Never commit** `.env` or `src/environments/firebase.config.ts` (they're in `.gitignore`)
+
 ## Development server
 
 To start a local development server, run:
